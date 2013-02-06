@@ -1,7 +1,8 @@
 ## Manually todo
 in cydia
-+ openssh
-+ aptbackup
+* openssh
+* aptbackup
+
 ----------------------
 ## Basic setup
 ln -s /private/var/local /usr
@@ -10,6 +11,7 @@ apt-get install sbsettings
 apt-get install network-cmds adv-cmds developer-cmds diskdev-cmds less sudo wget
 apt-get install git subversion
 apt-get install rsync com.was.mysql
+
 ----------------------
 ## Install Perl
 wget -cO /tmp/coredev.pub http://coredev.nl/cydia/coredev.pub
@@ -29,8 +31,9 @@ apt-get install p5-*fcgi*
 apt-get install p5-Devel-StackTrace-WithLexicals
 apt-get install p5-Net-Server*
 apt-get install p5-Proc-Wait3
+
 ----------------------
-## Install C and header files
+## Install C and header files for CPAN install
 wget http://gammalevel.com/forever/fake-libgcc_1.0_iphoneos-arm.deb
 dpkg -i fake-libgcc_1.0_iphoneos-arm.deb
 wget http://apt.saurik.com/debs/libgcc_4.2-20080410-1-6_iphoneos-arm.deb
@@ -41,11 +44,15 @@ ln -s /usr/bin/gcc /usr/bin/cc
 apt-get install make automake
 mkdir /usr/local/include
 apt-get install com.bigboss.20toolchain
+
 ---------------------
+## Reference
 http://www.mobile01.com/topicdetail.php?f=591&t=3030583
 http://shyunsei.9ten.net/?p=472
+
 ---------------------
-## /etc/profile
+## Initial Global Bash Env
+Copy and Paste these lines to /etc/profile
 export C_INCLUDE_PATH=/var/include
 export CPLUS_INCLUDE_PATH=/var/include
 export OBJC_INCLUDE_PATH=/var/include
@@ -53,15 +60,19 @@ export CPLUS_INCLUDE_PATH=/private/var/include/c++/4.0.0:/private/var/include/c+
 export CPPFLAGS=-I/usr/local/include/
 export CPP=/usr/bin/cpp
 export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\] [PWD: \w]\n> '
+
 ---------------------
-## ~mobile/.bashrc
+## Initial User Bash Env
+Copy and Paste these lines to ~mobile/.bashrc
 export PERL_LOCAL_LIB_ROOT="/var/mobile/perl5";
 export PERL_MB_OPT="--install_base /var/mobile/perl5";
 export PERL_MM_OPT="INSTALL_BASE=/var/mobile/perl5";
 export PERL5LIB=".:lib:/var/mobile/perl5/lib/perl5/arm-iphoneos:/var/mobile/perl5/lib/perl5";
 export PATH=".:bin:/var/mobile/perl5/bin:$PATH";
+
 ---------------------
-## .vimrc
+## Add hot key "gf" to open module file on the namespace
+Copy and Paste these lines to ~mobile/.vimrc
 function! GetCursorModuleName(fname)
     let cw = substitute( a:fname, '.\{-}\(\(\w\+\)\(::\w\+\)*\).*$', '\1', '' )
     return cw
@@ -92,6 +103,7 @@ endfunction
 
 set includeexpr=FindModuleFileInPaths(v:fname)
 set isfname+=:
+
 --------------------------
 ## Install cpanm and local::lib
 cd $HOME
