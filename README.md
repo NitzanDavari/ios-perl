@@ -17,7 +17,7 @@ apt-get install git subversion
 
 apt-get install rsync com.was.mysql
 
-dd----------------------
+----------------------
 ## Install Perl
 wget -cO /tmp/coredev.pub http://coredev.nl/cydia/coredev.pub
 
