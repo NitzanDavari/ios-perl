@@ -6,10 +6,15 @@ in cydia
 ----------------------
 ## Basic setup
 ln -s /private/var/local /usr
+
 apt-get install screen vim
+
 apt-get install sbsettings 
+
 apt-get install network-cmds adv-cmds developer-cmds diskdev-cmds less sudo wget
+
 apt-get install git subversion
+
 apt-get install rsync com.was.mysql
 
 ----------------------
