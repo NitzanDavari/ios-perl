@@ -25,10 +25,6 @@ apt-key add /tmp/coredev.pub
 
 echo 'deb http://coredev.nl/cydia iphone main' > /etc/apt/sources.list.d/coredev.nl.list 
 
-cd /usr/local/lib/perl5/5.10.0/arm-iphoneos/CORE/
-
-wget http://src.gnu-darwin.org/src/lib/libutil/libutil.h
-
 apt-get update
 
 apt-get install perl
@@ -52,6 +48,10 @@ apt-get install p5-Devel-StackTrace-WithLexicals
 apt-get install p5-Net-Server*
 
 apt-get install p5-Proc-Wait3
+
+cd /usr/local/lib/perl5/5.10.0/arm-iphoneos/CORE/
+
+wget http://src.gnu-darwin.org/src/lib/libutil/libutil.h
 
 ----------------------
 ## Install C and header files for CPAN install
