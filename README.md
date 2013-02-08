@@ -9,13 +9,17 @@ ln -s /private/var/local /usr
 
 apt-get install screen vim
 
-apt-get install sbsettings 
+apt-get install '.*cmds.*' less sudo wget
 
-apt-get install network-cmds adv-cmds developer-cmds diskdev-cmds less sudo wget
+apt-get install com.innoying.sbutils coreutils inetutils
 
 apt-get install git subversion
 
 apt-get install rsync com.was.mysql
+
+apt-get install sbsettings 
+
+dpkg -i archives/KeepAlive.deb
 
 ----------------------
 ## Install Perl
@@ -65,7 +69,7 @@ dpkg -i libgcc_4.2-20080410-1-6_iphoneos-arm.deb
 
 apt-get install iphone-gcc libsigc++
 
-apt-get install make ldid zip unzip patch gawk
+apt-get install ldid zip unzip patch gawk
 
 ln -s /usr/bin/gcc /usr/bin/cc
 
@@ -74,6 +78,8 @@ apt-get install make automake
 mkdir /usr/local/include
 
 apt-get install com.bigboss.20toolchain
+
+rsync -Pa iPhoneOS6.0.sdk/usr/lib /usr/lib
 
 ---------------------
 ## Reference
@@ -98,6 +104,8 @@ export CPPFLAGS=-I/usr/local/include/
 export CPP=/usr/bin/cpp
 
 export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\] [PWD: \w]\n> '
+
+. $HOME/.bashrc
 
 ---------------------
 ## Initial User Bash Env
@@ -178,3 +186,12 @@ perl test --local-lib=$HOME/perl5 local::lib App::cpanminus
 rm test
 
 cpanm DBD::mysql -v
+
+--------------------------
+## Install Git
+
+cd git-1.7.9.2-ready-make-install-for-ios
+
+make NO_TCLTK=1 prefix=/usr/local install
+
+git --version
